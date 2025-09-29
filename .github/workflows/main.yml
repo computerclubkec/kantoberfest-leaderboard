@@ -27,7 +27,7 @@ jobs:
       - name: Run python code and generate html file
         run: python main.py
         env:
-          GITHUB_TOKEN: ${{ secrets.RIBBY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           USER_LIST: ${{ secrets.USER_LIST }}
           DURATION_IN_DAYS: 5
           PAGE_DATA_COUNT: 5
