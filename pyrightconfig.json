@@ -1,0 +1,19 @@
+{
+  "include": ["leaderboard/**/*.py"],
+  "exclude": ["venv", "*.pyc", "*.egg-info", ".coverage", "tests/**/*.py"],
+
+  "reportMissingImports": false,
+  "reportUnusedImport": true,
+  "reportUnusedFunction": true,
+  "reportUnusedVariable": true,
+  "reportDuplicateImport": true,
+  "reportGeneralTypeIssues": false,
+  "verboseOutput": true,
+  "reportInvalidStringEscapeSequence": true,
+  "reportImplicitStringConcatenation": true,
+  "executionEnvironments": [
+    {
+      "root": "leaderboard"
+    }
+  ]
+}

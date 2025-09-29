@@ -1,0 +1,53 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: 0 0 * * * # Every Midnight
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v3
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: setup.py
+
+      - name: Install dependencies
+        run: make setup
+
+      - name: Run python code and generate html file
+        run: python main.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.RIBBY_TOKEN }}
+          USER_LIST: ${{ secrets.USER_LIST }}
+          DURATION_IN_DAYS: 5
+          PAGE_DATA_COUNT: 5
+          START_DATE: ${{ secrets.START_DATE }}
+
+      - name: Create assets
+        run: |
+          mkdir -p ./build/assets
+
+      - name: Copy assets
+        uses: canastro/copy-file-action@master # copy style.css
+        with:
+          source: './assets/.'
+          target: './build/assets/.'
+          flags: '-r'
+
+      - name: Upload to netlify
+        uses: South-Paw/action-netlify-deploy@v1.0.4 # deploy to netlify
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          netlify-auth-token: ${{ secrets.NETLIFY_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+          build-dir: './build'
