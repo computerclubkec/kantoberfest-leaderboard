@@ -12,7 +12,7 @@ requirements = [
     "markdown==3.2.2",
     "numpy==1.26.4",
     "gspread==6.2.1",
-    "gspread-dataframe==4.0.0"
+    "gspread-dataframe==4.0.0",
 ]
 
 # Development Requirements

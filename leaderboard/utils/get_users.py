@@ -3,14 +3,15 @@ from gspread_dataframe import get_as_dataframe
 import pandas as pd
 from typing import List
 
+
 def _extract_data_from_sheets(api_key: str, sheet_id: str) -> pd.DataFrame:
     """
     Extract data from Google Sheets and return as a pandas DataFrame.
-    
+
     Args:
         api_key: Google Sheets API key
         sheet_id: ID of the Google Sheet
-        
+
     Returns:
         DataFrame containing the sheet data
     """
@@ -23,24 +24,24 @@ def _extract_data_from_sheets(api_key: str, sheet_id: str) -> pd.DataFrame:
     return df
 
 
-def _get_user_names(df: pd.DataFrame)->List[str]:
-    profile_links = df['Github Profile Link']
+def _get_user_names(df: pd.DataFrame) -> List[str]:
+    profile_links = df["Github Profile Link"]
     usernames = []
     for link in profile_links:
         if pd.isna(link):
             continue
         link = str(link).strip()
-        if link.startswith('https://github.com/'):
-            username = link.replace('https://github.com/', '')
-        elif link.startswith('github.com/'):
-            username = link.replace('github.com/', '')
-        elif link.startswith('www.github.com/'):
-            username = link.replace('www.github.com/', '')
+        if link.startswith("https://github.com/"):
+            username = link.replace("https://github.com/", "")
+        elif link.startswith("github.com/"):
+            username = link.replace("github.com/", "")
+        elif link.startswith("www.github.com/"):
+            username = link.replace("www.github.com/", "")
         else:
             username = link
-        
+
         # Remove any trailing slashes and clean up
-        username = username.rstrip('/')
+        username = username.rstrip("/")
         if username:
             usernames.append(username)
 

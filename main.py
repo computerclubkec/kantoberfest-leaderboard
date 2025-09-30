@@ -30,6 +30,7 @@ variables = {
     "dataCount": data_count,
 }
 
+
 def main():
     """Script entrypoint.
 
@@ -48,5 +49,6 @@ def main():
     final_score_table = get_final_score_table(intermediate_score_table, dedup_user_list)
 
     final_html_output(final_score_table)
+
 
 main()
