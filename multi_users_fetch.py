@@ -1,4 +1,4 @@
-""" Fetch contributions for multiple users """
+"""Fetch contributions for multiple users"""
 
 import json
 import logging

@@ -1,4 +1,4 @@
-""" Util to convert the json to dataframe. """
+"""Util to convert the json to dataframe."""
 
 import json
 import os
@@ -188,7 +188,9 @@ def format_issue_comments(
         github_id = issue_comment["node"]["id"]
         repo_id = issue_comment["node"]["issue"]["repository"]["id"]
         repo_owner_id = issue_comment["node"]["issue"]["repository"]["owner"]["id"]
-        repo_owner_login = issue_comment["node"]["issue"]["repository"]["owner"]["login"]
+        repo_owner_login = issue_comment["node"]["issue"]["repository"]["owner"][
+            "login"
+        ]
         reactions = issue_comment["node"]["issue"]["reactions"]["totalCount"]
         created_at = issue_comment["node"]["createdAt"]
         last_updated_at = issue_comment["node"]["updatedAt"]
@@ -442,8 +444,7 @@ def format_repo_contributions(
         github_id = repo["node"]["repository"]["id"]
         repo_node = repo["node"]["repository"]
         repo_id = repo_node["id"]
-    
-        
+
         # Check if this is a fork and if so, check the parent repository's owner
         if repo_node["isFork"] and repo_node.get("parent"):
             parent_owner_login = repo_node["parent"]["owner"]["login"]
@@ -453,7 +454,7 @@ def format_repo_contributions(
             # For non-fork repos, the user is the owner, so we skip unless the user is the organization
             # This typically means we skip user-created repos that aren't under the organization
             continue
-        
+
         forks = repo_node["forkCount"]
         stars = repo_node["stargazers"]["totalCount"]
         created_at = repo_node["createdAt"]

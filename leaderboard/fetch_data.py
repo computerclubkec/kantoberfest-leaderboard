@@ -1,4 +1,5 @@
-""" Fetch required data from the GitHub API. """
+"""Fetch required data from the GitHub API."""
+
 import os
 import json
 import logging
