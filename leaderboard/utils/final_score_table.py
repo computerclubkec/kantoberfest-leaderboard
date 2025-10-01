@@ -67,8 +67,8 @@ def get_final_score_table(
 
             total_score = t1_score + t2_score + t3_score + t4_score
 
-            if total_score <= 0.0:
-                continue
+            # if total_score <= 0.0:
+            #     continue
 
             final_score_table = final_score_table.append(
                 {
@@ -83,8 +83,8 @@ def get_final_score_table(
             )
 
         except KeyError:
-            if total_score <= 0.0:
-                continue
+            # if total_score <= 0.0:
+            #     continue
 
             final_score_table = final_score_table.append(
                 {
