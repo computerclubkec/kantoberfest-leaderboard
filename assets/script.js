@@ -1,6 +1,25 @@
 const toggleBtn = document.getElementById("mode-toggle");
-toggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.remove("light-mode"); // dark by default
+  toggleBtn.checked = true; // show moon
+} else {
+  document.body.classList.add("light-mode"); // light mode
+  toggleBtn.checked = false; // show sun
+}
+
+// Toggle handler
+toggleBtn.addEventListener("change", () => {
+  if (toggleBtn.checked) {
+    // moon shown → dark mode
+    document.body.classList.remove("light-mode");
+    localStorage.setItem("theme", "dark");
+  } else {
+    // sun shown → light mode
+    document.body.classList.add("light-mode");
+    localStorage.setItem("theme", "light");
+  }
 });
 
 // Countdown Timer
