@@ -43,6 +43,9 @@ body {
   --report-bg: #ff4444; /* solid red */
   --report-bg-hover: #e02e2e; /* darker red on hover */
   --report-text: #ffffff; /* white text */
+
+  /* New variable for table headings */
+  --table-heading-text: #ffffff;
 }
 
 /* Light Mode */
@@ -50,7 +53,7 @@ body.light-mode {
   --theme-color: #fcfcfc; /* light background */
   --th-color: #395090; /*darker header blue*/
   --white-color: #ffffff; /*dark text*/
-  --black-color: #ffffff;
+  --black-color: #0a0a0a;
   --hover-color: rgb(251, 251, 251);
   --even-color: rgba(59, 130, 246, 0.15);
   --odd-color: rgba(59, 130, 246, 0.1);
@@ -165,7 +168,8 @@ td {
 }
 
 th {
-  color: var(--white-color);
+  /* Changed to use the theme-specific table heading color */
+  color: var(--table-heading-text);
   text-align: left;
   font-size: var(--font-size-small);
   position: sticky;
@@ -217,7 +221,6 @@ body.light-mode table {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode th,
 body.light-mode td {
   color: var(--black-color);
 }
