@@ -1,6 +1,6 @@
-# oss-leaderboard
+# kantoberfest-leaderboard
 
-OSS Leaderboard shows the top contributors based on their contribution activities on GitHub.
+Kantoberfest Leaderboard shows the top contributors based on their contribution activities on GitHub.
 
 <img src = "https://i.imgur.com/T2dF0FX.png" width = "700">
 
@@ -27,9 +27,9 @@ $ make run
 1. Clone the repository.
 
 ```bash
-$ git clone git@github.com:leapfrogtechnology/oss-leaderboard.git
+$ git clone git@github.com:computerclubkec/kantoberfest-leaderboard.git
 
-$ cd oss-leaderboard
+$ cd kantoberfest-leaderboard
 ```
 
 2. Setup a virtualenv.
@@ -80,3 +80,6 @@ The labels in the table starting from T1S1 to T5S1 correspond to the following:
 ## License
 
 Licensed under [The MIT License](LICENSE).
+
+## Credits
+Original Work: Leapfrog Technology, 2020 (https://github.com/leapfrogtechnology)
