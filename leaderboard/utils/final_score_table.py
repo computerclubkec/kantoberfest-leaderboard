@@ -70,29 +70,41 @@ def get_final_score_table(
             # if total_score <= 0.0:
             #     continue
 
-            new_row = pd.DataFrame([{
-                "User Name": user_name,
-                contribTypes.T1: t1_score,
-                contribTypes.T2: t2_score,
-                contribTypes.T3: t3_score,
-                contribTypes.T4: t4_score,
-                "Total Score": total_score,
-            }])
-            final_score_table = pd.concat([final_score_table, new_row], ignore_index=True)
+            new_row = pd.DataFrame(
+                [
+                    {
+                        "User Name": user_name,
+                        contribTypes.T1: t1_score,
+                        contribTypes.T2: t2_score,
+                        contribTypes.T3: t3_score,
+                        contribTypes.T4: t4_score,
+                        "Total Score": total_score,
+                    }
+                ]
+            )
+            final_score_table = pd.concat(
+                [final_score_table, new_row], ignore_index=True
+            )
 
         except KeyError:
             # if total_score <= 0.0:
             #     continue
 
-            new_row = pd.DataFrame([{
-                "User Name": user_name,
-                contribTypes.T1: t1_score,
-                contribTypes.T2: t2_score,
-                contribTypes.T3: t3_score,
-                contribTypes.T4: t4_score,
-                "Total Score": total_score,
-            }])
-            final_score_table = pd.concat([final_score_table, new_row], ignore_index=True)
+            new_row = pd.DataFrame(
+                [
+                    {
+                        "User Name": user_name,
+                        contribTypes.T1: t1_score,
+                        contribTypes.T2: t2_score,
+                        contribTypes.T3: t3_score,
+                        contribTypes.T4: t4_score,
+                        "Total Score": total_score,
+                    }
+                ]
+            )
+            final_score_table = pd.concat(
+                [final_score_table, new_row], ignore_index=True
+            )
 
     return final_score_table.sort_values(
         by=["Total Score", "User Name"], ascending=[False, True]
