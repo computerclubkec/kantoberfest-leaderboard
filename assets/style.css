@@ -10,7 +10,7 @@
 html,
 body {
   height: 100%;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
 }
 
 /* Root CSS Variables */
@@ -32,6 +32,12 @@ body {
   /* Padding */
   --padding-small: 0.625rem 1.5625rem;
   --padding-medium: 0.9375rem 1.5625rem;
+
+  /* Countdown Colors - Dark Mode */
+  --countdown-bg: #111;
+  --countdown-text: #ffffff;
+  --countdown-label: rgba(255, 255, 255, 0.7);
+  --countdown-title-color: #ffffff;
 }
 
 /* Light Mode */
@@ -43,6 +49,12 @@ body.light-mode {
   --hover-color: rgb(251, 251, 251);
   --even-color: rgba(59, 130, 246, 0.15);
   --odd-color: rgba(59, 130, 246, 0.1);
+
+  /* Countdown Colors - Light Mode */
+  --countdown-bg: #f0f0f0;
+  --countdown-text: #0a0a0a;
+  --countdown-label: rgba(0, 0, 0, 0.6);
+  --countdown-title-color: #0a0a0a;
 }
 
 /* Body Styles */
@@ -211,5 +223,86 @@ body.light-mode td {
     justify-content: flex-start;
     gap: 1rem;
     margin-top: 0.5rem;
+  }
+}
+
+/* Countdown Section */
+.countdown-section {
+  text-align: center;
+  margin: 40px auto 20px;
+}
+
+.countdown-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--countdown-title-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Countdown Styling */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: var(--countdown-bg);
+  color: var(--countdown-text);
+  border-radius: 12px;
+  padding: 20px;
+  width: 90px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.digit {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--countdown-label);
+}
+
+/* Animation */
+.slide-up {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .countdown-title {
+    font-size: 1.5rem;
+  }
+  .digit {
+    font-size: 2rem;
+  }
+  .time-box {
+    padding: 15px;
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-title {
+    font-size: 1.25rem;
+  }
+  .digit {
+    font-size: 1.5rem;
+  }
+  .time-box {
+    padding: 12px;
+    width: 60px;
+  }
+  .countdown {
+    gap: 0.8rem;
   }
 }
