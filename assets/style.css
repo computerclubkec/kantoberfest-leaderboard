@@ -38,6 +38,11 @@ body {
   --countdown-text: #ffffff;
   --countdown-label: rgba(255, 255, 255, 0.7);
   --countdown-title-color: #ffffff;
+
+  /* Report Button */
+  --report-bg: #ff4444; /* solid red */
+  --report-bg-hover: #e02e2e; /* darker red on hover */
+  --report-text: #ffffff; /* white text */
 }
 
 /* Light Mode */
@@ -55,6 +60,11 @@ body.light-mode {
   --countdown-text: #0a0a0a;
   --countdown-label: rgba(0, 0, 0, 0.6);
   --countdown-title-color: #0a0a0a;
+
+  /* Report Button */
+  --report-bg: #ffe5e5; /* soft pink background */
+  --report-bg-hover: #ffcccc; /* stronger on hover */
+  --report-text: #d91c1c; /* dark red text */
 }
 
 /* Body Styles */
@@ -305,4 +315,84 @@ body.light-mode td {
   .countdown {
     gap: 0.8rem;
   }
+}
+
+/* Report button */
+.report-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  height: 36px;
+  min-width: 100px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: var(--report-bg);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.report-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--report-text);
+  letter-spacing: 0.5px;
+}
+
+.report-btn:hover {
+  background: var(--report-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* Theme Switch */
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  --size-of-icon: 1.4em;
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
