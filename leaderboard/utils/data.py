@@ -1,4 +1,5 @@
-""" Utilities for data processing. """
+"""Utilities for data processing."""
+
 from datetime import datetime, timedelta
 import pandas as pd
 import markdown

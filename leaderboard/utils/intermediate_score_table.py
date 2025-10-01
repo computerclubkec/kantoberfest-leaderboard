@@ -1,4 +1,5 @@
-""" Create Intermediate Score Table from the received data. """
+"""Create Intermediate Score Table from the received data."""
+
 from typing import Tuple
 import pandas as pd
 from leaderboard.constants import contribTypes

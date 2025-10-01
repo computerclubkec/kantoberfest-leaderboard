@@ -1,4 +1,4 @@
-""" Util to convert the json to dataframe. """
+"""Util to convert the json to dataframe."""
 
 import json
 from typing import Dict, List

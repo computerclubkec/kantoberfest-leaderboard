@@ -1,4 +1,5 @@
-""" Main module for the OSS Leaderboard. """
+"""Main module for the OSS Leaderboard."""
+
 import os
 import logging
 

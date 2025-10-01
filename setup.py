@@ -1,4 +1,5 @@
-""" Package setup. """
+"""Package setup."""
+
 import setuptools
 
 
