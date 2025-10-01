@@ -26,6 +26,7 @@ query ossQuery($timedelta: DateTime!, $username: String!, $dataCount: Int!, $iss
               isArchived
               owner {
                 id
+                login
               }
             }
             reactions {
@@ -100,6 +101,7 @@ query ossQuery($timedelta: DateTime!, $username: String!, $dataCount: Int!, $iss
                 isArchived
                 owner {
                   id
+                  login
                 }
               }
               reactions {
@@ -139,6 +141,7 @@ query ossQuery($timedelta: DateTime!, $username: String!, $dataCount: Int!, $iss
                 isArchived
                 owner {
                   id
+                  login
                 }
               }
               state
