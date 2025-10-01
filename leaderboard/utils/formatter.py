@@ -1,10 +1,14 @@
 """ Util to convert the json to dataframe. """
 
 import json
+import os
 from typing import Dict, List
 
 import pandas as pd
 from leaderboard.constants import contribTypes
+
+# Organization to filter contributions by - can be overridden via environment variable
+ALLOWED_ORGANIZATION = os.environ.get("FILTER_ORGANIZATION", "computerclubkec")
 
 
 def convert_to_intermediate_table(data: str, timeDelta: str) -> pd.DataFrame:
@@ -184,9 +188,14 @@ def format_issue_comments(
         github_id = issue_comment["node"]["id"]
         repo_id = issue_comment["node"]["issue"]["repository"]["id"]
         repo_owner_id = issue_comment["node"]["issue"]["repository"]["owner"]["id"]
+        repo_owner_login = issue_comment["node"]["issue"]["repository"]["owner"]["login"]
         reactions = issue_comment["node"]["issue"]["reactions"]["totalCount"]
         created_at = issue_comment["node"]["createdAt"]
         last_updated_at = issue_comment["node"]["updatedAt"]
+
+        # Skip contributions that are not from the allowed organization
+        if repo_owner_login.lower() != ALLOWED_ORGANIZATION.lower():
+            continue
 
         if created_at >= timeDelta:
             df = df.append(
@@ -229,6 +238,11 @@ def format_pr_review_contributions(
         pr_review_node = pr_review["node"]["pullRequestReview"]
         repo_id = pr_review["node"]["repository"]["id"]
         repo_owner_id = pr_review["node"]["repository"]["owner"]["id"]
+        repo_owner_login = pr_review["node"]["repository"]["owner"]["login"]
+
+        # Skip contributions that are not from the allowed organization
+        if repo_owner_login.lower() != ALLOWED_ORGANIZATION.lower():
+            continue
 
         review_type = pr_review_node["ReviewState"]
         pr_status = pr_review_node["pullRequest"]["state"]
@@ -295,6 +309,12 @@ def format_pr_contributions(
 
         repo_id = pr_node["repository"]["id"]
         repo_owner_id = pr_node["repository"]["owner"]["id"]
+        repo_owner_login = pr_node["repository"]["owner"]["login"]
+
+        # Skip contributions that are not from the allowed organization
+        if repo_owner_login.lower() != ALLOWED_ORGANIZATION.lower():
+            continue
+
         pr_status = pr_node["state"]
 
         # Do not count contibution for closed PRs
@@ -366,6 +386,12 @@ def format_issue_contributions(
         issue_node = issue["node"]["issue"]
         repo_id = issue_node["repository"]["id"]
         repo_owner_id = issue_node["repository"]["owner"]["id"]
+        repo_owner_login = issue_node["repository"]["owner"]["login"]
+
+        # Skip contributions that are not from the allowed organization
+        if repo_owner_login.lower() != ALLOWED_ORGANIZATION.lower():
+            continue
+
         reactions = issue_node["reactions"]["totalCount"]
         labels = []
 
@@ -416,6 +442,18 @@ def format_repo_contributions(
         github_id = repo["node"]["repository"]["id"]
         repo_node = repo["node"]["repository"]
         repo_id = repo_node["id"]
+    
+        
+        # Check if this is a fork and if so, check the parent repository's owner
+        if repo_node["isFork"] and repo_node.get("parent"):
+            parent_owner_login = repo_node["parent"]["owner"]["login"]
+            if parent_owner_login.lower() != ALLOWED_ORGANIZATION.lower():
+                continue
+        else:
+            # For non-fork repos, the user is the owner, so we skip unless the user is the organization
+            # This typically means we skip user-created repos that aren't under the organization
+            continue
+        
         forks = repo_node["forkCount"]
         stars = repo_node["stargazers"]["totalCount"]
         created_at = repo_node["createdAt"]
