@@ -1,30 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frogtoberfest Leaderboard</title>
+    <title>KANTOBERFEST</title>
   </head>
   <link rel="stylesheet" type="text/css" href="../assets/style.css" />
   <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.png" />
   <link rel="icon" type="image/x-icon" href="../assets/favicon.png" />
   <body>
     <div>
+      <!-- Navigation Bar -->
       <nav>
-        <img src="../assets/LF_Opensource.png" alt="Logo">
-        <div class="nav-links">
-          <a target="_blank" rel="noopener noreferrer" href="https://frogtoberfest.lftechnology.com/#participation">Participation</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://frogtoberfest.lftechnology.com/#swag">SWAG</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://frogtoberfest.lftechnology.com/#faq">FAQs</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://frogtoberfest.lftechnology.com/checker">Checker</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Lf-Network/oss-leaderboard">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="vertical-align:middle"><g fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></g></svg>
+        <svg
+          width="225"
+          height="21"
+          viewBox="0 0 225 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.952 20.852V2.836H3.768V0.0839996H7.832V4.468H5.016V8.308H6.584V5.556H9.432V2.836H12.248V0.0839996H16.344V4.468H13.496V7.188H10.68V9.908H7.832V10.996H10.68V13.748H13.496V16.5H16.344V20.852H12.248V18.132H9.432V15.38H6.584V12.628H5.016V20.852H0.952ZM19.6083 20.852V5.556H22.4243V2.836H25.2403V0.0839996H29.3363V2.836H32.1523V5.556H35.0003V20.852H30.9043V15.38H23.6723V20.852H19.6083ZM23.6723 10.996H30.9043V7.188H28.0883V4.468H26.4883V7.188H23.6723V10.996ZM38.8895 20.852V0.0839996H42.9535V2.836H45.7695V5.556H48.6175V13.748H50.1855V0.0839996H54.2815V20.852H50.1855V18.132H47.3695V15.38H44.5215V7.188H42.9535V20.852H38.8895ZM62.834 20.852V4.468H61.266V7.188H57.202V2.836H60.018V0.0839996H69.746V2.836H72.594V7.188H68.498V4.468H66.93V20.852H62.834ZM78.3305 20.852V18.132H75.5145V2.836H78.3305V0.0839996H88.0585V2.836H90.9065V18.132H88.0585V20.852H78.3305ZM79.5785 16.5H86.8105V4.468H79.5785V16.5ZM97.6118 20.852V18.132H94.7958V2.836H97.6118V0.0839996H107.34V2.836H110.188V9.908H107.34V10.996H110.188V18.132H107.34V20.852H97.6118ZM98.8598 16.5H106.092V12.628H100.428V8.308H106.092V4.468H98.8598V16.5ZM116.893 20.852V18.132H114.077V2.836H116.893V0.0839996H126.621V2.836H129.469V7.188H125.373V4.468H118.141V8.308H123.805V12.628H118.141V16.5H125.373V13.748H129.469V18.132H126.621V20.852H116.893ZM133.358 20.852V2.836H136.174V0.0839996H145.902V2.836H148.75V12.628H145.902V15.38H144.526V16.5H147.31V20.852H143.278V18.132H140.398V15.38H137.422V20.852H133.358ZM137.422 10.996H144.654V4.468H137.422V10.996Z"
+            fill="white"
+          />
+          <path
+            d="M152.64 20.852V0.0839996H165.184V2.836H168.032V7.188H163.936V4.468H156.704V8.308H162.368V12.628H156.704V20.852H152.64ZM174.112 20.852V18.132H171.296V2.836H174.112V0.0839996H183.84V2.836H186.688V7.188H182.592V4.468H175.36V8.308H181.024V12.628H175.36V16.5H182.592V13.748H186.688V18.132H183.84V20.852H174.112ZM193.393 20.852V18.132H190.577V13.748H194.641V16.5H201.873V12.628H193.393V9.908H190.577V2.836H193.393V0.0839996H203.121V2.836H205.969V7.188H201.873V4.468H194.641V8.308H203.121V10.996H205.969V18.132H203.121V20.852H193.393ZM214.865 20.852V4.468H213.297V7.188H209.233V2.836H212.049V0.0839996H221.777V2.836H224.625V7.188H220.529V4.468H218.961V20.852H214.865Z"
+            fill="#00C4FF"
+          />
+        </svg>
+        <div class="nav-right">
+          <a href="https://kec.edu.np/" , target="_blank">KEC</a>
+          <a href="https://computerclubkec.github.io/" , target="_blank"
+            >KEC Computer Club</a
+          >
+          <a href="https://discord.gg/CkdvDpGu" , target="_blank"
+            >Discord: KEC</a
+          >
+          <a href="https://discord.gg/ZqhhXt4sca" , target="_blank"
+            >Discord: KEC Computer Club</a
+          >
+          <a
+            href="https://github.com/computerclubkec"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              style="vertical-align: middle"
+            >
+              <g fill="currentColor">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </g>
+            </svg>
           </a>
+          <div id="mode-toggle" class="mode-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              id="mode-icon-svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 2a9.931 9.931 0 0 0-7.07 2.93A9.931 9.931 0 0 0 2 12c0 2.67 1.04 5.2 2.93 7.07A9.931 9.931 0 0 0 12 22a9.931 9.931 0 0 0 7.07-2.93A9.931 9.931 0 0 0 22 12a9.931 9.931 0 0 0-2.93-7.07A9.931 9.931 0 0 0 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.85.63-3.55 1.69-4.9a7.963 7.963 0 0 1 0 9.8A7.963 7.963 0 0 1 12 20z"
+              />
+            </svg>
+          </div>
         </div>
-        <div class="menu-icon">&#9776;</div>
       </nav>
       <div class="leaderboard">
         <div class="leaderboard__table">{table}</div>
       </div>
     </div>
+    <script src="../assets/script.js"></script>
   </body>
 </html>
