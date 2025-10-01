@@ -32,6 +32,8 @@ jobs:
           DURATION_IN_DAYS: 5
           PAGE_DATA_COUNT: 5
           START_DATE: ${{ secrets.START_DATE }}
+          GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+          GOOGLE_SHEETS_API_KEY: ${{ secrets.GOOGLE_SHEETS_API_KEY }}
 
       - name: Create assets
         run: |
