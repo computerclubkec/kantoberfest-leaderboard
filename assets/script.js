@@ -57,5 +57,15 @@ function animateDigit(id, newVal) {
   }
 }
 
+const hamburger = document.getElementById("hamburger");
+const navRight = document.getElementById("nav-right");
+const modeToggle = document.getElementById("mode-toggle");
+
+// Toggle mobile nav
+hamburger.addEventListener("click", () => {
+  navRight.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
 setInterval(updateCountdown, 1000);
 updateCountdown();
