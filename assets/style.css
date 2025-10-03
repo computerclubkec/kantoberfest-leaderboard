@@ -50,7 +50,7 @@ body.light-mode {
   --theme-color: #fcfcfc;
   --th-color: #395090;
   --white-color: #ffffff;
-  --black-color: #ffffff;
+  --black-color: #0a0a0a;
   --hover-color: rgb(251, 251, 251);
   --even-color: rgba(59, 130, 246, 0.15);
   --odd-color: rgba(59, 130, 246, 0.1);
