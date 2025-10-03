@@ -49,6 +49,7 @@ body {
 body.light-mode {
   --theme-color: #fcfcfc;
   --th-color: #395090;
+  --table-heading-text: #ffffff;
   --white-color: #ffffff;
   --black-color: #0a0a0a;
   --hover-color: rgb(251, 251, 251);
@@ -155,6 +156,7 @@ nav .nav-right a:hover {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+
 /* Responsive Navbar */
 @media screen and (max-width: 1150px) {
   .hamburger {
@@ -196,6 +198,16 @@ nav .nav-right a:hover {
   width: 24px;
   height: 24px;
 }
+
+/* Particle-Js */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
 
 /* Leaderboard Styles */
 .leaderboard {

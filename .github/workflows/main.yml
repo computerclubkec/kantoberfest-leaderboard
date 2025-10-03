@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: 0 0 * * * # Every Midnight
+    - cron: 0 */4 * * * # Every 4 hours
   workflow_dispatch:
 jobs:
   build:

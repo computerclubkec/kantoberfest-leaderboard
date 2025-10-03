@@ -1,5 +1,10 @@
 const toggleBtn = document.getElementById("mode-toggle");
 
+// Particles Js
+particlesJS.load('particles-js', '../assets/particles.json', function() {
+          console.log('particles.js config loaded');
+        });
+
 // Load saved theme
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.remove("light-mode"); // dark by default
@@ -56,6 +61,8 @@ function animateDigit(id, newVal) {
     }, 400);
   }
 }
+
+
 
 const hamburger = document.getElementById("hamburger");
 const navRight = document.getElementById("nav-right");
