@@ -40,34 +40,29 @@ body {
   --countdown-title-color: #ffffff;
 
   /* Report Button */
-  --report-bg: #ff4444; /* solid red */
-  --report-bg-hover: #e02e2e; /* darker red on hover */
-  --report-text: #ffffff; /* white text */
-
-  /* New variable for table headings */
-  --table-heading-text: #ffffff;
+  --report-bg: #ff4444;
+  --report-bg-hover: #e02e2e;
+  --report-text: #ffffff;
 }
 
 /* Light Mode */
 body.light-mode {
-  --theme-color: #fcfcfc; /* light background */
-  --th-color: #395090; /*darker header blue*/
-  --white-color: #ffffff; /*dark text*/
+  --theme-color: #fcfcfc;
+  --th-color: #395090;
+  --white-color: #ffffff;
   --black-color: #0a0a0a;
   --hover-color: rgb(251, 251, 251);
   --even-color: rgba(59, 130, 246, 0.15);
   --odd-color: rgba(59, 130, 246, 0.1);
 
-  /* Countdown Colors - Light Mode */
   --countdown-bg: #f0f0f0;
   --countdown-text: #0a0a0a;
   --countdown-label: rgba(0, 0, 0, 0.6);
   --countdown-title-color: #0a0a0a;
 
-  /* Report Button */
-  --report-bg: #ffe5e5; /* soft pink background */
-  --report-bg-hover: #ffcccc; /* stronger on hover */
-  --report-text: #d91c1c; /* dark red text */
+  --report-bg: #ffe5e5;
+  --report-bg-hover: #ffcccc;
+  --report-text: #d91c1c;
 }
 
 /* Body Styles */
@@ -93,7 +88,10 @@ nav {
   align-items: center;
   padding: 1rem 5%;
   background-color: var(--th-color);
-  flex-wrap: wrap;
+  width: auto;
+  z-index: 100;
+  margin: 0;
+  position: relative;
 }
 
 nav .logo {
@@ -121,7 +119,64 @@ nav .nav-right a {
 }
 
 nav .nav-right a:hover {
-  color: #0d2d54; /* light blue hover */
+  color: #0d2d54;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--white-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active {
+  display: flex;
+}
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 1150px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav .nav-right {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--th-color);
+    padding: 1rem;
+    gap: 1rem;
+    display: none;
+  }
+
+  nav .nav-right.active {
+    display: flex;
+  }
 }
 
 /* Mode toggle icon */
@@ -153,9 +208,10 @@ nav .nav-right a:hover {
 table {
   border-collapse: separate;
   border-spacing: 0;
-  width: 100%;
+  width: auto;
   margin: 0 auto;
-  border: 1px solid var(--th-color);
+  padding: 4%;
+  border: 0px solid var(--th-color);
   border-radius: 6px;
   overflow: hidden;
   transition: border-color 0.3s;
@@ -223,20 +279,6 @@ body.light-mode table {
 
 body.light-mode td {
   color: var(--black-color);
-}
-
-/* Responsive Navbar */
-@media screen and (max-width: 992px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav .nav-right {
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-top: 0.5rem;
-  }
 }
 
 /* Countdown Section */
@@ -398,4 +440,29 @@ input:checked + .slider:before {
   left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
   background: #303136;
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+.leaderboard__table {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 13px 1rem 13px;
+}
+
+.leaderboard__table table {
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+/* Keep first column fixed, no theme override */
+.leaderboard__table th:first-child,
+.leaderboard__table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.leaderboard__table td:first-child {
+  min-width: 180px;
 }
