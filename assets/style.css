@@ -478,3 +478,14 @@ input:checked + .slider:before {
 .leaderboard__table td:first-child {
   min-width: 180px;
 }
+
+/* Remove hyperlink decoration from usernames in the leaderboard table */
+.leaderboard__table a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.leaderboard__table a:hover {
+  text-decoration: none;
+  color: inherit;
+}
