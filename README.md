@@ -2,7 +2,7 @@
 
 Kantoberfest Leaderboard shows the top contributors based on their contribution activities on GitHub.
 
-<img src = "https://i.imgur.com/T2dF0FX.png" width = "700">
+<img src="./assets/Kantoberfest-leaderboard.png" width="700">
 
 ## Usage
 
@@ -82,4 +82,5 @@ The labels in the table starting from T1S1 to T5S1 correspond to the following:
 Licensed under [The MIT License](LICENSE).
 
 ## Credits
+
 Original Work: Leapfrog Technology, 2020 (https://github.com/leapfrogtechnology)
