@@ -83,16 +83,15 @@ h1 {
 }
 
 /* Navbar */
-nav {
+nav.navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 5%;
   background-color: var(--th-color);
-  width: auto;
-  z-index: 100;
-  margin: 0;
   position: relative;
+  z-index: 100;
 }
 
 nav .logo {
@@ -101,12 +100,20 @@ nav .logo {
   color: var(--white-color);
 }
 
+/* Links centered */
 nav .nav-right {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+/* Right-side actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 nav .nav-right a {
@@ -128,8 +135,10 @@ nav .nav-right a:hover {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
+  width: 26px;
   height: 18px;
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
 
@@ -142,9 +151,6 @@ nav .nav-right a:hover {
   transition: all 0.3s ease;
 }
 
-.hamburger.active {
-  display: flex;
-}
 /* Hamburger animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -156,28 +162,77 @@ nav .nav-right a:hover {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* ===== GITHUB ICON ===== */
+.github-icon svg {
+  color: var(--white-color);
+  width: 20px;
+  height: 20px;
+}
+
+/* Desktop ≥1151px */
+@media (min-width: 1151px) {
+  .logo-wrapper svg {
+    width: 225px;
+    height: 21px;
+  }
+  nav .nav-right {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .hamburger {
+    display: none;
+  }
+}
 
 /* Responsive Navbar */
 @media screen and (max-width: 1150px) {
+  .logo-wrapper svg {
+    width: 140px;
+    height: auto;
+  }
+
   .hamburger {
     display: flex;
+  }
+
+  nav.navbar {
+    padding: 0.75rem 3%;
+  }
+
+  .nav-actions {
+    gap: 0.6rem;
   }
 
   nav .nav-right {
     position: absolute;
     top: 100%;
+    left: 0;
     right: 0;
-    width: 100%;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
     background-color: var(--th-color);
     padding: 1rem;
-    gap: 1rem;
-    display: none;
   }
 
   nav .nav-right.active {
     display: flex;
+  }
+
+  .report-btn {
+    min-width: 84px;
+    padding: 4px 10px;
+  }
+  .switch {
+    --width-of-switch: 2.8em;
+    --height-of-switch: 1.6em;
+  }
+  .github-icon svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -201,19 +256,20 @@ nav .nav-right a:hover {
 
 /* Particle-Js */
 #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
 
 /* Leaderboard Styles */
 .leaderboard {
   max-width: 970px;
   margin: 3.125rem auto 0;
   text-align: center;
+  padding-bottom: 3rem;
 }
 
 /* Table Styles */
@@ -296,14 +352,14 @@ body.light-mode td {
 /* Countdown Section */
 .countdown-section {
   text-align: center;
-  margin: 40px auto 20px;
+  margin: 30px auto 15px;
 }
 
 .countdown-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--countdown-title-color);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -311,7 +367,7 @@ body.light-mode td {
 .countdown {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -319,21 +375,21 @@ body.light-mode td {
   background: var(--countdown-bg);
   color: var(--countdown-text);
   border-radius: 12px;
-  padding: 20px;
-  width: 90px;
+  padding: 15px;
+  width: 70px;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .digit {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   display: inline-block;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--countdown-label);
 }
@@ -345,25 +401,22 @@ body.light-mode td {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .countdown-title {
-    font-size: 1.5rem;
-  }
-  .digit {
-    font-size: 2rem;
-  }
-  .time-box {
-    padding: 15px;
-    width: 70px;
+@media (min-width: 1024px) {
+  .countdown-section {
+    margin: 40px auto 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .countdown-section {
+    margin: 25px auto 15px;
+  }
   .countdown-title {
     font-size: 1.25rem;
+    margin-bottom: 12px;
   }
   .digit {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   .time-box {
     padding: 12px;
@@ -374,8 +427,29 @@ body.light-mode td {
   }
 }
 
+@media (max-width: 480px) {
+  .countdown-section {
+    margin: 20px auto 12px;
+  }
+  .countdown-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .digit {
+    font-size: 1.3rem;
+  }
+  .time-box {
+    padding: 10px;
+    width: 55px;
+  }
+  .countdown {
+    gap: 0.6rem;
+  }
+}
+
 /* Report button */
 .report-btn {
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -399,6 +473,7 @@ body.light-mode td {
 .report-btn:hover {
   background: var(--report-bg-hover);
   transform: translateY(-1px);
+  text-decoration: none;
 }
 
 /* Theme Switch */
@@ -454,10 +529,49 @@ input:checked + .slider:before {
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 
+@media (max-width: 768px) {
+  .report-btn {
+    min-width: 80px;
+    height: 32px;
+    padding: 4px 10px;
+  }
+  .report-label {
+    font-size: 13px;
+  }
+  .switch {
+    --width-of-switch: 2.8em;
+    --height-of-switch: 1.6em;
+    --size-of-icon: 1.1em;
+  }
+  .github-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-btn {
+    min-width: 60px;
+    height: 24px;
+    padding: 3px 8px;
+  }
+  .report-label {
+    font-size: 12px;
+  }
+  .switch {
+    --width-of-switch: 2.5em;
+    --height-of-switch: 1.4em;
+  }
+  .github-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
 .leaderboard__table {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 1rem 13px 1rem 13px;
+  margin: 1rem 13px 0 13px;
 }
 
 .leaderboard__table table {
