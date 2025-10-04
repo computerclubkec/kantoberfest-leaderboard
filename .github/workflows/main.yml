@@ -11,6 +11,11 @@ on:
     - cron: 0 */4 * * * # Every 4 hours
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+  deployments: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
