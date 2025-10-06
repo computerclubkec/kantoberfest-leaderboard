@@ -48,13 +48,15 @@ $ make setup
 
 ## Contributing
 
-Feel free to send pull requests.
-Make sure to run following commands:
+We welcome contributions of all kinds (features, fixes, docs, tests). Please read our detailed [Contributing Guide](CONTRIBUTING.md) before opening an issue or pull request. It covers setup, workflow, commit conventions, and review process.
 
+Quick pre-PR checklist:
 ```bash
-$ make format
-$ make check
+make format
+make check
 ```
+
+By participating you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Intermediate score table
 
