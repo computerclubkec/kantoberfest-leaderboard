@@ -2,7 +2,7 @@
 
 Kantoberfest Leaderboard shows the top contributors based on their contribution activities on GitHub.
 
-<img src = "https://i.imgur.com/T2dF0FX.png" width = "700">
+<img src="./assets/Kantoberfest-leaderboard.png" width="700">
 
 ## Usage
 
@@ -48,13 +48,15 @@ $ make setup
 
 ## Contributing
 
-Feel free to send pull requests.
-Make sure to run following commands:
+We welcome contributions of all kinds (features, fixes, docs, tests). Please read our detailed [Contributing Guide](CONTRIBUTING.md) before opening an issue or pull request. It covers setup, workflow, commit conventions, and review process.
 
+Quick pre-PR checklist:
 ```bash
-$ make format
-$ make check
+make format
+make check
 ```
+
+By participating you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Intermediate score table
 
@@ -82,4 +84,5 @@ The labels in the table starting from T1S1 to T5S1 correspond to the following:
 Licensed under [The MIT License](LICENSE).
 
 ## Credits
+
 Original Work: Leapfrog Technology, 2020 (https://github.com/leapfrogtechnology)
