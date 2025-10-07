@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo content
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: make setup
 
-      - name: Run python code and generate html file
+      - name: Run Python script to generate HTML
         run: python main.py
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -45,18 +45,13 @@ jobs:
           GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
           GOOGLE_SHEETS_API_KEY: ${{ secrets.GOOGLE_SHEETS_API_KEY }}
 
-      - name: Create assets
-        run: mkdir -p ./build/assets
+      - name: Prepare build assets
+        run: |
+          mkdir -p ./build/assets
+          cp -r ./assets/. ./build/assets/.
 
-      - name: Copy assets
-        uses: canastro/copy-file-action@master
-        with:
-          source: './assets/.'
-          target: './build/assets/.'
-          flags: '-r'
-
-      # Upload preview for PRs
-      - name: Upload PR preview to Netlify
+      # --- PR Preview Deploy ---
+      - name: Deploy PR Preview to Netlify
         if: github.event_name == 'pull_request'
         uses: nwtgck/actions-netlify@v2.0
         with:
@@ -69,9 +64,9 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      # Deploy to production only from main
-      - name: Upload to netlify (production)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      # --- Production Deploy ---
+      - name: Deploy to Netlify (Production)
+        if: startsWith(github.ref, 'refs/heads/main')
         uses: South-Paw/action-netlify-deploy@v1.0.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
