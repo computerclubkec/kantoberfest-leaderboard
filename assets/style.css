@@ -603,3 +603,41 @@ input:checked + .slider:before {
   text-decoration: none;
   color: inherit;
 }
+
+/* Username cell */
+.username {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 8px;
+}
+
+/* Avatar image styling */
+.username img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.username img:hover {
+  transform: scale(1.05);
+}
+
+/* Top contributor crown styling */
+tbody tr:first-child .username a:last-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+tbody tr:first-child .username a:last-child::after {
+  content: "👑";
+  font-size: 1.1rem;
+  color: #ffd700;
+  position: relative;
+  top: -3px;
+}
